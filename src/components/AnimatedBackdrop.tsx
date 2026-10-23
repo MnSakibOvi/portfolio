@@ -64,7 +64,7 @@ function seedBodies(w: number, h: number): Body[] {
   return ICON_DEFS.map((def, i) => {
     const r = def.size * 0.85;
     const angle = (i / ICON_DEFS.length) * Math.PI * 2;
-    const speed = 0.45 + (i % 5) * 0.12;
+    const speed = 0.22 + (i % 5) * 0.06;
     return {
       id: i,
       Icon: def.Icon,
@@ -111,7 +111,7 @@ function resolveCollision(
   b.vx += impulse * nx;
   b.vy += impulse * ny;
 
-  const cap = 2.1;
+  const cap = 1.1;
   for (const body of [a, b]) {
     const s = Math.hypot(body.vx, body.vy);
     if (s > cap) {
@@ -157,7 +157,7 @@ function forcePairCollision(bodies: Body[]) {
   const dist = Math.hypot(dx, dy) || 1;
   const nx = dx / dist;
   const ny = dy / dist;
-  const speed = 3.2;
+  const speed = 1.6;
 
   a.vx = nx * speed;
   a.vy = ny * speed;
@@ -208,20 +208,20 @@ export function AnimatedBackdrop() {
 
         if (b.x < b.r) {
           b.x = b.r;
-          b.vx = Math.abs(b.vx) * 1.05;
+          b.vx = Math.abs(b.vx);
           b.push = 1;
         } else if (b.x > w - b.r) {
           b.x = w - b.r;
-          b.vx = -Math.abs(b.vx) * 1.05;
+          b.vx = -Math.abs(b.vx);
           b.push = 1;
         }
         if (b.y < b.r) {
           b.y = b.r;
-          b.vy = Math.abs(b.vy) * 1.05;
+          b.vy = Math.abs(b.vy);
           b.push = 1;
         } else if (b.y > h - b.r) {
           b.y = h - b.r;
-          b.vy = -Math.abs(b.vy) * 1.05;
+          b.vy = -Math.abs(b.vy);
           b.push = 1;
         }
 
@@ -251,7 +251,7 @@ export function AnimatedBackdrop() {
         if (!el) continue;
         const scale = 1 + b.push * 0.4;
         el.style.transform = `translate3d(${b.x - b.r}px, ${b.y - b.r}px, 0) scale(${scale})`;
-        el.style.opacity = String(0.09 + b.push * 0.16);
+        el.style.opacity = String(0.16 + b.push * 0.2);
       }
 
       rafRef.current = requestAnimationFrame(tick);
