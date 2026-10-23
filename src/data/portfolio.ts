@@ -1,5 +1,7 @@
 export const profile = {
   name: "Nazmus Sakib",
+  /** Header / favicon-style wordmark */
+  brand: "M N Sakib",
   title: "Software Engineer · Enterprise E-Commerce",
   tagline:
     "Delivering scalable, revenue-driving commerce platforms for enterprises across Australia, Europe, and Asia.",

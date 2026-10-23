@@ -398,6 +398,59 @@ body {
   min-height: 3.25rem;
 }
 
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: var(--ink);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.55rem;
+  background: var(--accent);
+  color: var(--paper);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  flex-shrink: 0;
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 8%, transparent);
+}
+
+.brand-word {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.brand-initials {
+  color: var(--ink);
+  letter-spacing: 0.08em;
+}
+
+.brand-surname {
+  color: var(--accent-deep);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 380px) {
+  .brand-word {
+    font-size: 0.95rem;
+  }
+}
+
 .nav-clear {
   background: transparent;
 }

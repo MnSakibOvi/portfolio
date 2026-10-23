@@ -75,15 +75,21 @@ export function Nav() {
           <Magnetic strength={0.2}>
             <a
               href="#top"
-              className="font-[family-name:var(--font-display)] text-lg font-semibold tracking-tight text-[var(--ink)]"
+              className="brand-logo"
+              aria-label={`${profile.brand} — home`}
               data-cursor="hover"
               onClick={(e) => {
                 e.preventDefault();
                 go("top");
               }}
             >
-              {profile.name.split(" ")[0]}
-              <span className="text-[var(--accent)]">.</span>
+              <span className="brand-mark" aria-hidden>
+                NS
+              </span>
+              <span className="brand-word">
+                <span className="brand-initials">M N</span>
+                <span className="brand-surname"> Sakib</span>
+              </span>
             </a>
           </Magnetic>
 
