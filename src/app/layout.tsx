@@ -20,6 +20,13 @@ export const metadata: Metadata = {
   title: "Nazmus Sakib · Software Engineer | Enterprise E-Commerce",
   description:
     "Software Engineer specializing in ASP.NET Core and nopCommerce — enterprise B2B/B2C platforms, ERP integration, and end-to-end client delivery.",
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     title: "Nazmus Sakib · Software Engineer",
     description:
