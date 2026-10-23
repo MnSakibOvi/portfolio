@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nazmus Sakib — Portfolio Website
 
-## Getting Started
+Professional animated portfolio. Free stack, free deploy on [Vercel](https://vercel.com).
 
-First, run the development server:
+## Stack (all free)
+
+| Piece | Library | Cost |
+|-------|---------|------|
+| Framework | Next.js 16 | Free |
+| Animations | Framer Motion | Free / MIT |
+| Smooth scroll | Lenis | Free / MIT |
+| Custom cursor + click ripples | Custom CSS/JS | Free |
+| Fonts | Google Fonts (Syne, Outfit) | Free |
+| Hosting | Vercel Hobby | Free |
+
+Inspired by [Dribbble web-animation](https://dribbble.com/tags/web-animation) motion patterns — implemented without paid tools (no Lottie paid plans, no premium cursor libraries).
+
+## Local development
 
 ```bash
+cd website
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy to Vercel (free)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Push this `website` folder (or the whole repo) to GitHub.
+2. Go to [vercel.com/new](https://vercel.com/new) → import the repo.
+3. Set **Root Directory** to `website` if the repo root is `portfolio`.
+4. Deploy — no paid plan required.
 
-## Learn More
+Or with CLI:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+cd website
+npx vercel
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Animations included
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Custom cursor (dot + trail + ring) on desktop
+- Click burst + page ripple on every click
+- Magnetic hover on buttons/links
+- Smooth Lenis scrolling
+- Scroll-triggered reveals on every section
+- Parallax hero fade
+- Hover micro-interactions on projects, timeline, skills
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Respects `prefers-reduced-motion` and disables the custom cursor on touch devices.
