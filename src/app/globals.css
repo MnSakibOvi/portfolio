@@ -355,6 +355,12 @@ body {
 /* —— Layout —— */
 .section {
   padding: clamp(4.5rem, 10vw, 7.5rem) 0;
+  /* Clear fixed header when jumping via #hash / mobile menu */
+  scroll-margin-top: 5.5rem;
+}
+
+#top {
+  scroll-margin-top: 0;
 }
 
 .section-alt {
@@ -384,14 +390,74 @@ body {
 }
 
 /* —— Nav —— */
+.site-header {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.site-header-inner {
+  min-height: 3.25rem;
+}
+
 .nav-clear {
   background: transparent;
 }
 
 .nav-solid {
-  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
   backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
+}
+
+.burger-btn {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.burger-btn:active {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.mobile-nav {
+  overscroll-behavior: contain;
+  touch-action: none;
+}
+
+.mobile-nav-backdrop {
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  width: min(100%, 20rem);
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.mobile-nav-link:active {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent-deep);
+}
+
+@media (max-width: 767px) {
+  .section-title {
+    font-size: clamp(1.55rem, 7vw, 2.1rem);
+    line-height: 1.2;
+  }
+
+  .section {
+    scroll-margin-top: 4.75rem;
+  }
 }
 
 .nav-link {

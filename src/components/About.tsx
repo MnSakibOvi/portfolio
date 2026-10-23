@@ -5,13 +5,13 @@ import {
   Store,
   Package,
   Trophy,
-  GraduationCap,
+  Users,
 } from "lucide-react";
 import { highlights, summary } from "@/data/portfolio";
 import { Reveal, Stagger, StaggerItem } from "./Reveal";
 import { BounceIcon } from "./BounceIcon";
 
-const statIcons = [Store, Package, Trophy, GraduationCap];
+const statIcons = [Store, Package, Trophy, Users];
 
 export function About() {
   return (

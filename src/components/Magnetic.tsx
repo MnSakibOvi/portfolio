@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
@@ -11,12 +11,20 @@ type Props = {
 
 export function Magnetic({ children, className, strength = 0.35 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(false);
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
   const x = useSpring(mx, { stiffness: 280, damping: 20 });
   const y = useSpring(my, { stiffness: 280, damping: 20 });
 
+  useEffect(() => {
+    const fine = window.matchMedia("(pointer: fine)").matches;
+    const hover = window.matchMedia("(hover: hover)").matches;
+    setActive(fine && hover);
+  }, []);
+
   const onMove = (e: React.MouseEvent) => {
+    if (!active) return;
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
@@ -30,6 +38,11 @@ export function Magnetic({ children, className, strength = 0.35 }: Props) {
     mx.set(0);
     my.set(0);
   };
+
+  // Avoid transform wrappers on touch — they break tap targets for header links
+  if (!active) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div

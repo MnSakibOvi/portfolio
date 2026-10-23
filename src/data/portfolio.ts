@@ -357,7 +357,7 @@ export const highlights = [
   { label: "Live client stores", value: "15+" },
   { label: "Catalog scale", value: "60k+" },
   { label: "CP solves", value: "1300+" },
-  { label: "CGPA", value: "3.65" },
+  { label: "Students mentored", value: "300+" },
 ];
 
 export const contestAchievements = {
