@@ -16,6 +16,7 @@ const body = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portfolio-mn-sakib-se.vercel.app"),
   title: "Nazmus Sakib · Software Engineer | Enterprise E-Commerce",
   description:
     "Software Engineer specializing in ASP.NET Core and nopCommerce — enterprise B2B/B2C platforms, ERP integration, and end-to-end client delivery.",
@@ -24,6 +25,23 @@ export const metadata: Metadata = {
     description:
       "Enterprise e-commerce solutions across Australia, Europe, and Asia.",
     type: "website",
+    url: "https://portfolio-mn-sakib-se.vercel.app",
+    siteName: "Nazmus Sakib",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Nazmus Sakib · Software Engineer | Enterprise E-Commerce",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nazmus Sakib · Software Engineer",
+    description:
+      "Enterprise e-commerce solutions across Australia, Europe, and Asia.",
+    images: ["/og.png"],
   },
 };
 
