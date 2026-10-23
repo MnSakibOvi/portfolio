@@ -359,3 +359,80 @@ export const highlights = [
   { label: "CP solves", value: "1300+" },
   { label: "CGPA", value: "3.65" },
 ];
+
+export const contestAchievements = {
+  stats: [
+    { value: "Champion", label: "DIU Intra-University 2021" },
+    { value: "Top 10", label: "Bangladesh · Codeforces" },
+    { value: "200+", label: "Individual contests" },
+    { value: "1300+", label: "Problems solved" },
+  ],
+  highlights: [
+    "Champion — DIU Intra-University Programming Contest 2021",
+    "14th overall / Department champion (Software Engineering)",
+    "ICPC Asia Dhaka Regional participant (team)",
+    "Codeforces Pupil · peak rating 1294",
+    "100+ team contests (online & onsite)",
+  ],
+  platforms: [
+    { name: "Codeforces", handle: "mn_sakib_ovi", note: "Pupil · 1294" },
+    { name: "UVA", handle: "mn_sakib_ovi", note: "~200 solves" },
+    { name: "LightOJ", handle: "mn_sakib_ovi", note: "65+ solves" },
+    { name: "Vjudge", handle: "mn_sakib_ovi", note: "~200 solves" },
+  ],
+  icpcTeams: [
+    { team: "DIU_AristocratiC", year: "2020", event: "ICPC Asia Dhaka Preliminary" },
+    { team: "DIU_HEXA", year: "2021", event: "ICPC Asia Dhaka Preliminary" },
+    { team: "DIU_Aim3rs", year: "2022", event: "ICPC Asia Dhaka Preliminary" },
+  ],
+};
+
+export const mentoring = {
+  role: "Trainer @ DIU ACM",
+  org: "Daffodil International University ACM Chapter",
+  period: "2021 – 2023",
+  camps: [
+    "Take-off Advance Camp — Spring 2022",
+    "Take-off Advance Camp — Fall 2022",
+    "Take-off Advance Camp — Spring 2023",
+  ],
+  courses: [
+    "C Khoon — Intro to C & Problem Solving (Fall 2021)",
+    "C Khoon — Intermediate Algorithms (Spring 2022)",
+    "C Khoon — Advanced Competitive Programming (Fall 2022)",
+  ],
+  impact: [
+    "Official mentor for DIU ACM students in ICPC and campus contests",
+    "Unofficial mentor for many more developing DSA & CP skills",
+    "Focus: data structures, algorithms, contest strategy, debugging",
+    "Mentees progressed to Specialist / Expert on Codeforces",
+  ],
+};
+
+/** Problem setting / contest committee (judging & prep) */
+export const judging = {
+  role: "Contest Preparation Committee",
+  summary:
+    "Problem setting and contest preparation for university programming contests — designing statements, test data, and judging criteria.",
+  contests: [
+    "DIU Take-off Programming Contest — Fall 2022",
+    "Unlock The Algorithm Programming Contest — Fall 2022",
+    "DIU Take-off Programming Contest — Spring 2023",
+    "DIU CodeTrap Programming Contest — Spring 2023",
+  ],
+};
+
+export const research = {
+  title: "Making Fair and Creative AI Writers",
+  focus: [
+    "Large Language Models (LLM)",
+    "Dynamic Task Learning",
+    "Bias Mitigation in LLMs",
+  ],
+  contributions: [
+    "Investigated bias mitigation techniques in large language models",
+    "Explored dynamic task learning for improved AI writing quality",
+    "Contributed to fairness and creativity in AI-generated content",
+  ],
+  status: "Academic research · BSc Software Engineering",
+};
