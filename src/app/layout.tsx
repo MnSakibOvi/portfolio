@@ -17,9 +17,9 @@ const body = Outfit({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-mn-sakib-se.vercel.app"),
-  title: "Nazmus Sakib · Software Engineer | Enterprise E-Commerce",
+  title: "Nazmus Sakib · Software Engineer | ASP.NET · nopCommerce",
   description:
-    "Software Engineer specializing in ASP.NET Core and nopCommerce — enterprise B2B/B2C platforms, ERP integration, and end-to-end client delivery.",
+    "Software Engineer open to roles - ASP.NET Core, nopCommerce, ERP integration, and multi-store enterprise platforms. Based in Dhaka, Bangladesh.",
   icons: {
     icon: [
       { url: "/icon.png", type: "image/png" },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Nazmus Sakib · Software Engineer",
     description:
-      "Enterprise e-commerce solutions across Australia, Europe, and Asia.",
+      "ASP.NET Core · nopCommerce · open to Software Engineer roles.",
     type: "website",
     url: "https://portfolio-mn-sakib-se.vercel.app",
     siteName: "Nazmus Sakib",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Nazmus Sakib · Software Engineer | Enterprise E-Commerce",
+        alt: "Nazmus Sakib · Software Engineer | ASP.NET · nopCommerce",
       },
     ],
   },
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nazmus Sakib · Software Engineer",
     description:
-      "Enterprise e-commerce solutions across Australia, Europe, and Asia.",
+      "ASP.NET Core · nopCommerce · open to Software Engineer roles.",
     images: ["/og.png"],
   },
 };

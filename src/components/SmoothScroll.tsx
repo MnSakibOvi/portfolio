@@ -9,7 +9,9 @@ import Lenis from "lenis";
  */
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     const finePointer = window.matchMedia("(pointer: fine)").matches;
     const canHover = window.matchMedia("(hover: hover)").matches;
     if (reduced || !finePointer || !canHover) return;

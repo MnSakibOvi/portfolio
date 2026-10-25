@@ -80,10 +80,7 @@ function seedBodies(w: number, h: number): Body[] {
 }
 
 /** Returns hit point if a real bounce happened. */
-function resolveCollision(
-  a: Body,
-  b: Body
-): { x: number; y: number } | null {
+function resolveCollision(a: Body, b: Body): { x: number; y: number } | null {
   const dx = b.x - a.x;
   const dy = b.y - a.y;
   const dist = Math.hypot(dx, dy) || 0.001;
@@ -177,7 +174,9 @@ export function AnimatedBackdrop() {
     const layer = layerRef.current;
     if (!layer) return;
 
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     if (reduced) return;
 
     let w = window.innerWidth;

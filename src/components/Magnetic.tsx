@@ -39,7 +39,7 @@ export function Magnetic({ children, className, strength = 0.35 }: Props) {
     my.set(0);
   };
 
-  // Avoid transform wrappers on touch — they break tap targets for header links
+  // Avoid transform wrappers on touch - they break tap targets for header links
   if (!active) {
     return <div className={className}>{children}</div>;
   }

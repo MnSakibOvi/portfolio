@@ -9,8 +9,8 @@ function isButtonLike(target: EventTarget | null) {
   if (!(target instanceof Element)) return false;
   return Boolean(
     target.closest(
-      "a.btn-primary, a.btn-ghost, button, [class*='btn-primary'], [class*='btn-ghost']"
-    )
+      "a.btn-primary, a.btn-ghost, button, [class*='btn-primary'], [class*='btn-ghost']",
+    ),
   );
 }
 

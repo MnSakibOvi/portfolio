@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight, MapPin, MessageCircle } from "lucide-react";
+import { ArrowRight, Briefcase, MapPin, Mail } from "lucide-react";
 import { profile } from "@/data/portfolio";
 import { Magnetic } from "./Magnetic";
 import { ProfilePhoto } from "./ProfilePhoto";
@@ -17,6 +17,10 @@ export function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.96]);
+
+  const mailHref = `mailto:${profile.email}?subject=${encodeURIComponent(
+    "Software Engineer opportunity - Nazmus Sakib",
+  )}`;
 
   return (
     <section
@@ -37,14 +41,22 @@ export function Hero() {
       >
         <div>
           <motion.p
-            className="mb-5 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.22em] text-[var(--accent)]"
+            className="mb-4 inline-flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-medium uppercase tracking-[0.18em] text-[var(--accent)]"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <MapPin size={14} strokeWidth={2} />
-            {profile.location}
-            {/* · Available for hire */}
+            <span className="inline-flex items-center gap-2">
+              <MapPin size={14} strokeWidth={2} />
+              {profile.location}
+            </span>
+            <span className="hidden text-[var(--line)] sm:inline" aria-hidden>
+              ·
+            </span>
+            <span className="inline-flex items-center gap-2 normal-case tracking-normal text-[var(--accent-deep)]">
+              <Briefcase size={14} strokeWidth={2} />
+              {profile.availability}
+            </span>
           </motion.p>
 
           <motion.h1
@@ -61,7 +73,20 @@ export function Hero() {
           </motion.h1>
 
           <motion.p
-            className="mt-5 max-w-xl text-base leading-relaxed text-[var(--ink-soft)] md:text-lg"
+            className="mt-3 text-base font-semibold text-[var(--ink-soft)] md:text-lg"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.28 }}
+          >
+            {profile.title}
+            <span className="font-normal text-[var(--ink-muted)]">
+              {" "}
+              · {profile.focus}
+            </span>
+          </motion.p>
+
+          <motion.p
+            className="mt-4 max-w-xl text-base leading-relaxed text-[var(--ink-soft)] md:text-lg"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.35 }}
@@ -86,22 +111,31 @@ export function Hero() {
           >
             <Magnetic>
               <a
-                href="#projects"
+                href="#work"
                 className="btn-primary inline-flex items-center gap-2"
                 data-cursor="hover"
               >
-                View projects
+                View experience
                 <ArrowRight size={16} strokeWidth={2} />
               </a>
             </Magnetic>
             <Magnetic>
               <a
-                href="#contact"
+                href="#projects"
                 className="btn-ghost inline-flex items-center gap-2"
                 data-cursor="hover"
               >
-                <MessageCircle size={16} strokeWidth={1.75} />
-                Contact
+                Case studies
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a
+                href={mailHref}
+                className="btn-ghost inline-flex items-center gap-2"
+                data-cursor="hover"
+              >
+                <Mail size={16} strokeWidth={1.75} />
+                Email me
               </a>
             </Magnetic>
           </motion.div>

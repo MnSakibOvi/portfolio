@@ -23,7 +23,9 @@ export function CustomCursor() {
 
   useEffect(() => {
     const fine = window.matchMedia("(pointer: fine)").matches;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     if (!fine || reduced) return;
     setEnabled(true);
 
@@ -46,7 +48,7 @@ export function CustomCursor() {
     const onOver = (e: MouseEvent) => {
       const t = e.target as HTMLElement | null;
       const interactive = t?.closest(
-        "a, button, [data-cursor='hover'], input, textarea, summary"
+        "a, button, [data-cursor='hover'], input, textarea, summary",
       );
       setHovering(Boolean(interactive));
     };

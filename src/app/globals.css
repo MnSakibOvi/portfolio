@@ -1065,6 +1065,36 @@ body {
   border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
 }
 
+.project-role-subtitle {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+  color: var(--accent-deep);
+}
+
+.delivery-cycle-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--line));
+  background: color-mix(in srgb, var(--accent) 8%, white);
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 550;
+}
+
+.delivery-cycle-num {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
 .challenge-panel {
   border-radius: 0.9rem;
   border: 1px solid var(--line);

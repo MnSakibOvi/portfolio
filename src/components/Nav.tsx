@@ -13,7 +13,7 @@ import { profile } from "@/data/portfolio";
 const links = [
   { href: "#about", label: "About" },
   { href: "#work", label: "Work" },
-  { href: "#projects", label: "Projects" },
+  { href: "#projects", label: "Case studies" },
   { href: "#skills", label: "Skills" },
   { href: "#beyond", label: "Beyond" },
   { href: "#contact", label: "Contact" },
@@ -53,11 +53,14 @@ export function Nav() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const go = useCallback((hash: string) => {
-    setOpen(false);
-    // Let the menu unmount / unlock body before scrolling (mobile Safari)
-    window.setTimeout(() => scrollToId(hash), open ? 80 : 0);
-  }, [open]);
+  const go = useCallback(
+    (hash: string) => {
+      setOpen(false);
+      // Let the menu unmount / unlock body before scrolling (mobile Safari)
+      window.setTimeout(() => scrollToId(hash), open ? 80 : 0);
+    },
+    [open],
+  );
 
   const solid = scrolled || open;
 
@@ -76,7 +79,7 @@ export function Nav() {
             <a
               href="#top"
               className="brand-logo"
-              aria-label={`${profile.brand} — home`}
+              aria-label={`${profile.brand} - home`}
               data-cursor="hover"
               onClick={(e) => {
                 e.preventDefault();
@@ -93,7 +96,10 @@ export function Nav() {
             </a>
           </Magnetic>
 
-          <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+          <nav
+            className="hidden items-center gap-8 md:flex"
+            aria-label="Primary"
+          >
             {links.map((l) => (
               <Magnetic key={l.href} strength={0.25}>
                 <a

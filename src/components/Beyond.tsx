@@ -59,7 +59,9 @@ const blocks = [
               key={t.team + t.year}
               className="text-xs text-[var(--ink-muted)] md:text-sm"
             >
-              <span className="font-medium text-[var(--ink-soft)]">{t.team}</span>
+              <span className="font-medium text-[var(--ink-soft)]">
+                {t.team}
+              </span>
               {" · "}
               {t.year} · {t.event}
             </li>
@@ -81,22 +83,24 @@ const blocks = [
           {mentoring.period}
         </p>
         <ul className="mt-5 space-y-3">
-          {[...mentoring.camps, ...mentoring.courses.slice(0, 2)].map((item) => (
-            <motion.li
-              key={item}
-              className="skill-row"
-              whileHover={{ x: 8 }}
-              transition={{ type: "spring", stiffness: 400, damping: 25 }}
-              data-cursor="hover"
-            >
-              <BookOpen
-                size={15}
-                className="shrink-0 text-[var(--accent)]"
-                strokeWidth={1.75}
-              />
-              {item}
-            </motion.li>
-          ))}
+          {[...mentoring.camps, ...mentoring.courses.slice(0, 2)].map(
+            (item) => (
+              <motion.li
+                key={item}
+                className="skill-row"
+                whileHover={{ x: 8 }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                data-cursor="hover"
+              >
+                <BookOpen
+                  size={15}
+                  className="shrink-0 text-[var(--accent)]"
+                  strokeWidth={1.75}
+                />
+                {item}
+              </motion.li>
+            ),
+          )}
         </ul>
         <ul className="mt-4 space-y-3 border-t border-[var(--line)] pt-4">
           {mentoring.impact.map((item) => (
@@ -186,7 +190,9 @@ const blocks = [
             </motion.li>
           ))}
         </ul>
-        <p className="mt-4 text-xs text-[var(--ink-muted)]">{research.status}</p>
+        <p className="mt-4 text-xs text-[var(--ink-muted)]">
+          {research.status}
+        </p>
       </>
     ),
   },
@@ -205,11 +211,12 @@ export function Beyond() {
             Beyond code
           </p>
           <h2 className="section-title">
-            Contests, mentoring, judging &amp; research
+            Problem-solving, mentoring &amp; research
           </h2>
           <p className="mt-3 max-w-2xl text-[var(--ink-muted)]">
-            Competitive programming roots, campus training, contest problem
-            setting, and academic research in fair AI writing.
+            Competitive programming and contest leadership that back up how I
+            debug, design, and teach - plus academic research in fair AI
+            writing.
           </p>
         </Reveal>
 

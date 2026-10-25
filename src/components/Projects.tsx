@@ -10,6 +10,7 @@ import {
   ChevronUp,
 } from "lucide-react";
 import {
+  deliveryCycle,
   projectPrograms,
   projects,
   type Project,
@@ -83,13 +84,18 @@ function ProjectCard({
           <div className="flex flex-wrap items-center gap-2">
             <span className="program-badge">{project.program}</span>
             <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--ink-muted)]">
-              {String(index + 1).padStart(2, "0")} · {project.role}
+              {String(index + 1).padStart(2, "0")}
             </span>
           </div>
           <h3 className="mt-3 font-[family-name:var(--font-display)] text-2xl font-semibold text-[var(--ink)] md:text-3xl">
             {project.name}
           </h3>
-          <p className="mt-2 text-sm text-[var(--ink-muted)]">{project.stack}</p>
+          <p className="project-role-subtitle mt-2">
+            {project.role}
+          </p>
+          <p className="mt-2 text-sm text-[var(--ink-muted)]">
+            {project.stack}
+          </p>
         </div>
         {project.url && (
           <Magnetic strength={0.2}>
@@ -100,7 +106,7 @@ function ProjectCard({
               className="btn-ghost inline-flex items-center gap-1.5 text-sm"
               data-cursor="hover"
             >
-              Visit site
+              Live demo
               <ExternalLink size={14} strokeWidth={1.75} />
             </a>
           </Magnetic>
@@ -109,7 +115,7 @@ function ProjectCard({
 
       <motion.div className="challenge-panel mt-6" variants={lineVariants}>
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">
-          Challenge
+          Context
         </p>
         <p className="mt-1.5 text-sm leading-relaxed text-[var(--ink-soft)] md:text-base">
           {project.challenge}
@@ -130,7 +136,7 @@ function ProjectCard({
         <div>
           <h4 className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">
             <Target size={13} strokeWidth={2} />
-            Business outcomes
+            Impact
           </h4>
           <ul className="mt-3 space-y-2.5">
             {project.outcomes.map((item, i) => (
@@ -150,42 +156,48 @@ function ProjectCard({
         <div>
           <h4 className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">
             <Sparkles size={13} strokeWidth={2} />
-            What I delivered
+            My contributions
           </h4>
           <ul className="mt-3 space-y-2.5">
-            {(expanded
-              ? project.solutions
-              : project.solutions.slice(0, 4)
-            ).map((item) => (
-              <motion.li
-                key={item}
-                className="flex gap-2.5 text-sm leading-relaxed text-[var(--ink-soft)]"
-                variants={lineVariants}
-              >
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--ink-muted)]" />
-                <span>{item}</span>
-              </motion.li>
-            ))}
+            <AnimatePresence initial={false}>
+              {project.solutions.map((item, i) => {
+                if (!expanded && i >= 4) return null;
+                const isExtra = i >= 4;
+                return (
+                  <motion.li
+                    key={item}
+                    className="flex gap-2.5 text-sm leading-relaxed text-[var(--ink-soft)]"
+                    initial={isExtra ? { opacity: 0, y: 10 } : false}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                    transition={{ duration: 0.28, ease }}
+                  >
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--ink-muted)]" />
+                    <span>{item}</span>
+                  </motion.li>
+                );
+              })}
+            </AnimatePresence>
           </ul>
           {project.solutions.length > 4 && (
             <button
               type="button"
-              className="mt-3 text-sm font-medium text-[var(--accent)] underline-offset-4 hover:underline"
+              className="mt-3 inline-flex min-h-11 items-center gap-1 text-sm font-medium text-[var(--accent)] underline-offset-4 hover:underline"
               data-cursor="hover"
+              aria-expanded={expanded}
               onClick={onToggle}
             >
-              <span className="inline-flex items-center gap-1">
-                {expanded ? (
-                  <>
-                    Show less <ChevronUp size={14} />
-                  </>
-                ) : (
-                  <>
-                    Show {project.solutions.length - 4} more details{" "}
-                    <ChevronDown size={14} />
-                  </>
-                )}
-              </span>
+              {expanded ? (
+                <>
+                  Show less <ChevronUp size={14} />
+                </>
+              ) : (
+                <>
+                  Show {project.solutions.length - 4} more{" "}
+                  {project.solutions.length - 4 === 1 ? "detail" : "details"}{" "}
+                  <ChevronDown size={14} />
+                </>
+              )}
             </button>
           )}
         </div>
@@ -240,13 +252,27 @@ export function Projects() {
     <section id="projects" className="section">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <Reveal>
-          <p className="section-label">Selected work</p>
+          <p className="section-label">Engineering case studies</p>
           <h2 className="section-title max-w-2xl">
-            Client projects — not buried under umbrella labels.
+            {deliveryCycle.headline}
           </h2>
-          <p className="mt-4 max-w-2xl text-[var(--ink-soft)]">
-            Each store and program below is a focused delivery: challenge,
-            outcomes, and what shipped. Filter by program to dig in.
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-[var(--ink-soft)] md:text-lg">
+            {deliveryCycle.pitch}
+          </p>
+          <div className="delivery-cycle mt-6 flex flex-wrap gap-2">
+            {deliveryCycle.stages.map((stage, i) => (
+              <span key={stage} className="delivery-cycle-step">
+                <span className="delivery-cycle-num">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                {stage}
+              </span>
+            ))}
+          </div>
+          <p className="mt-5 max-w-2xl text-sm text-[var(--ink-muted)]">
+            Each case study states my role clearly. Programs I led show
+            end-to-end ownership; shared platform work is listed as developer
+            feature delivery.
           </p>
         </Reveal>
 

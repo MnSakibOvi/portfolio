@@ -18,7 +18,11 @@ export function Experience() {
             </BounceIcon>
             Experience
           </p>
-          <h2 className="section-title">Career path</h2>
+          <h2 className="section-title">Work experience</h2>
+          <p className="mt-3 max-w-2xl text-[var(--ink-muted)]">
+            Resume-style timeline at Brain Station 23 - enterprise .NET /
+            nopCommerce engineering with increasing ownership.
+          </p>
         </Reveal>
 
         <div className="mt-14 space-y-0">
@@ -67,7 +71,10 @@ export function Experience() {
           ))}
         </div>
 
-        <Reveal delay={0.15} className="mt-4 border-t border-[var(--line)] pt-12">
+        <Reveal
+          delay={0.15}
+          className="mt-4 border-t border-[var(--line)] pt-12"
+        >
           <p className="section-label inline-flex items-center gap-2">
             <BounceIcon>
               <GraduationCap size={14} strokeWidth={2} />

@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  CheckCircle2,
-  Store,
-  Package,
-  Trophy,
-  Users,
-} from "lucide-react";
+import { CheckCircle2, Store, Package, Trophy, Users } from "lucide-react";
 import { highlights, summary } from "@/data/portfolio";
 import { Reveal, Stagger, StaggerItem } from "./Reveal";
 import { BounceIcon } from "./BounceIcon";
@@ -20,8 +14,13 @@ export function About() {
         <Reveal>
           <p className="section-label">About</p>
           <h2 className="section-title max-w-3xl">
-            Enterprise commerce that ships — and stays live.
+            Technical engineer for live ecommerce platforms.
           </h2>
+          <p className="mt-3 max-w-2xl text-[var(--ink-muted)]">
+            Ecommerce domain depth plus systems skills: .NET plugins, SQL,
+            integrations, and AIDLC-enabled delivery with forward-deploy
+            ownership.
+          </p>
         </Reveal>
 
         <div className="mt-12 grid gap-12 md:grid-cols-[1.2fr_0.8fr]">
@@ -31,10 +30,7 @@ export function About() {
             </p>
             <ul className="mt-8 space-y-3">
               {summary.bullets.map((b) => (
-                <li
-                  key={b}
-                  className="flex gap-3 text-[var(--ink-muted)]"
-                >
+                <li key={b} className="flex gap-3 text-[var(--ink-muted)]">
                   <CheckCircle2
                     className="mt-0.5 shrink-0 text-[var(--accent)]"
                     size={18}

@@ -14,21 +14,28 @@ import { BounceIcon } from "./BounceIcon";
 import { motion } from "framer-motion";
 
 const groupMeta = [
-  { title: "Core stack", items: skills.core, Icon: Code2 },
-  { title: "Domains", items: skills.domains, Icon: Boxes },
-  { title: "Delivery", items: skills.soft, Icon: Handshake },
+  { title: "Languages & runtime", items: skills.core, Icon: Code2 },
+  { title: "Platform engineering", items: skills.domains, Icon: Boxes },
+  { title: "Delivery & AIDLC", items: skills.soft, Icon: Handshake },
 ];
 
 const itemIcons = [Braces, Database, Globe2, Code2, Boxes];
 
 export function Skills() {
   return (
-    <section id="skills" className="section section-alt relative overflow-hidden">
+    <section
+      id="skills"
+      className="section section-alt relative overflow-hidden"
+    >
       <div className="section-orb" aria-hidden />
       <div className="relative z-10 mx-auto max-w-6xl px-5 md:px-8">
         <Reveal>
           <p className="section-label">Skills</p>
-          <h2 className="section-title">What I bring to the table</h2>
+          <h2 className="section-title">Technical skills for engineering roles</h2>
+          <p className="mt-3 max-w-2xl text-[var(--ink-muted)]">
+            Stack depth for .NET / nopCommerce jobs, plus AIDLC-enabled
+            practices and forward-deploy habits from production client work.
+          </p>
         </Reveal>
 
         <Stagger className="mt-14 grid gap-8 md:grid-cols-3">
