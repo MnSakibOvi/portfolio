@@ -17,22 +17,22 @@ export const profile = {
 };
 
 export const summary = {
-  lead: "Software Engineer at Brain Station 23 specializing in ASP.NET Core and nopCommerce. I work close to production and stakeholders - diagnosing live issues, designing plugins/APIs, and owning releases - in a forward-deploy style loop, with AIDLC-enabled AI-assisted engineering practices.",
+  lead: "Software Engineer at Brain Station 23 focused on enterprise ASP.NET Core platforms. I work close to production and stakeholders - designing services and APIs, integrating external systems, diagnosing live issues, and owning releases - with AIDLC-enabled engineering practices.",
   bullets: [
-    "Deep nopCommerce work: custom plugins, service overrides, FluentMigrator, theme ports, multi-store scoping",
-    "Backend integrations: REST/Web APIs, ERP sync (Jim2, Xero, Schneider), OAuth, webhooks, schedule tasks",
-    "Data & reliability: SQL Server / T-SQL, catalog pipelines at 60k+ SKUs, SignalR progress jobs, production debugging",
-    "Platform upgrades on live systems (4.4 → 4.7, 4.6 → 4.9) with regression-minded cutovers",
+    "Enterprise .NET: modular services, background jobs, migrations, multi-tenant / multi-store configuration",
+    "System integrations: REST/Web APIs, ERP and third-party sync, OAuth, webhooks, scheduled pipelines",
+    "Data & reliability: SQL Server / T-SQL, large-scale data flows, SignalR progress jobs, production debugging",
+    "Safe upgrades and cutovers on live systems with regression-minded delivery",
     "AIDLC Enabled - structured AI-assisted development with human review gates across design → build → verify",
-    "Forward-deploy mindset: sit with the problem, ship to prod, support go-live, tighten feedback with the business",
+    "Forward-deploy mindset: clarify the problem, ship to production, support go-live, close the feedback loop",
   ],
   stack: [
     "C# / .NET",
     "ASP.NET Core",
-    "nopCommerce",
     "SQL Server",
     "REST / Web API",
     "Azure",
+    "System integration",
     "FluentMigrator",
     "AIDLC Enabled",
   ],
@@ -100,15 +100,15 @@ export const projectPrograms = [
 
 /** End-to-end ownership positioning for hiring managers */
 export const deliveryCycle = {
-  headline: "End-to-end ownership on live commerce platforms.",
+  headline: "End-to-end ownership on enterprise platforms.",
   pitch:
-    "On the programs I lead, I take responsibility across the full delivery lifecycle: clarifying requirements, estimating scope, implementing the solution, releasing to production, and supporting product issues after go-live.",
+    "On the programs I lead, I own the delivery lifecycle from discovery through production: requirements, estimation, implementation, release, and ongoing product support.",
   stages: [
-    "Requirements analysis",
-    "Scope & estimation",
-    "Implementation",
-    "Release & go-live",
-    "Production support",
+    { title: "Requirements", detail: "Clarify scope with stakeholders" },
+    { title: "Estimation", detail: "Plan effort and delivery risks" },
+    { title: "Implementation", detail: "Build, integrate, and verify" },
+    { title: "Release", detail: "Ship safely to production" },
+    { title: "Support", detail: "Resolve live product issues" },
   ],
 };
 
@@ -117,7 +117,7 @@ export const projects: Project[] = [
     id: "switchboard",
     name: "Switchboard In A Box",
     program: "Action Websites",
-    role: "Software Engineer · End-to-end ownership (requirements through production support)",
+    role: "Software Engineer · End-to-end ownership",
     challenge:
       "Migrate and keep a 60,000+ SKU electrical catalog in sync (Schneider API), with complex pricing and Xero accounting on nopCommerce.",
     summary:
@@ -143,7 +143,7 @@ export const projects: Project[] = [
     id: "ausgrid",
     name: "Ausgrid Staff Club",
     program: "Action Websites",
-    role: "Software Engineer · End-to-end ownership (requirements through production support)",
+    role: "Software Engineer · End-to-end ownership",
     challenge:
       "Ship membership-only commerce for employee benefits - renewals, purchase limits, events, reservations, and MFA on nopCommerce 4.90.",
     summary:
@@ -168,7 +168,7 @@ export const projects: Project[] = [
     id: "ozzie-tabs",
     name: "Ozzie Tabs",
     program: "Action Websites",
-    role: "Software Engineer · End-to-end ownership (requirements through production support)",
+    role: "Software Engineer · End-to-end ownership",
     challenge:
       "Custom shipping bands, tier pricing, and product media rules on a retail nopCommerce storefront.",
     summary:
@@ -192,7 +192,7 @@ export const projects: Project[] = [
     id: "realty-shop",
     name: "Realty Shop",
     program: "Action Websites",
-    role: "Software Engineer · End-to-end ownership (requirements through production support)",
+    role: "Software Engineer · End-to-end ownership",
     challenge:
       "Launch nopCommerce 4.90 with a custom theme port and production cutover on Plesk.",
     summary:
@@ -279,7 +279,7 @@ export const projects: Project[] = [
     id: "jim2",
     name: "Jim2Commerce Portal",
     program: "Jim2Commerce",
-    role: "Software Engineer · End-to-end ownership (requirements through production support)",
+    role: "Software Engineer · End-to-end ownership",
     challenge:
       "ERP-backed B2B commerce on Jim2 - live pricing/stock, quotes, approvals, SSO, and partner product feeds.",
     summary:

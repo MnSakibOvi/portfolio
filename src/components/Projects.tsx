@@ -256,23 +256,26 @@ export function Projects() {
           <h2 className="section-title max-w-2xl">
             {deliveryCycle.headline}
           </h2>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-[var(--ink-soft)] md:text-lg">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--ink-soft)] md:text-lg">
             {deliveryCycle.pitch}
           </p>
-          <div className="delivery-cycle mt-6 flex flex-wrap gap-2">
+          <ol className="delivery-cycle mt-8" aria-label="Delivery lifecycle">
             {deliveryCycle.stages.map((stage, i) => (
-              <span key={stage} className="delivery-cycle-step">
-                <span className="delivery-cycle-num">
+              <li key={stage.title} className="delivery-cycle-step">
+                <span className="delivery-cycle-num" aria-hidden>
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                {stage}
-              </span>
+                <span className="delivery-cycle-copy">
+                  <span className="delivery-cycle-title">{stage.title}</span>
+                  <span className="delivery-cycle-detail">{stage.detail}</span>
+                </span>
+              </li>
             ))}
-          </div>
-          <p className="mt-5 max-w-2xl text-sm text-[var(--ink-muted)]">
-            Each case study states my role clearly. Programs I led show
-            end-to-end ownership; shared platform work is listed as developer
-            feature delivery.
+          </ol>
+          <p className="mt-6 max-w-2xl text-sm text-[var(--ink-muted)]">
+            Role is shown under each project title. Led programs list
+            end-to-end ownership; shared platforms list developer feature
+            delivery.
           </p>
         </Reveal>
 

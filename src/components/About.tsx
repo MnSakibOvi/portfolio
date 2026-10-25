@@ -14,12 +14,11 @@ export function About() {
         <Reveal>
           <p className="section-label">About</p>
           <h2 className="section-title max-w-3xl">
-            Technical engineer for live ecommerce platforms.
+            Enterprise .NET engineer for production systems.
           </h2>
           <p className="mt-3 max-w-2xl text-[var(--ink-muted)]">
-            Ecommerce domain depth plus systems skills: .NET plugins, SQL,
-            integrations, and AIDLC-enabled delivery with forward-deploy
-            ownership.
+            Backend platforms, integrations, and reliable releases - with
+            AIDLC-enabled practices and forward-deploy ownership.
           </p>
         </Reveal>
 
