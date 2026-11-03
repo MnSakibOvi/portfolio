@@ -13,6 +13,7 @@ import { profile } from "@/data/portfolio";
 const links = [
   { href: "#about", label: "About" },
   { href: "#work", label: "Work" },
+  { href: "/#projects", label: "Projects" },
   { href: "/case-studies/switchboard", label: "Case studies" },
   { href: "#skills", label: "Skills" },
   { href: "#beyond", label: "Beyond" },
@@ -56,15 +57,30 @@ export function Nav() {
   const go = useCallback(
     (href: string) => {
       setOpen(false);
-      // Route links (case studies) navigate; hash links smooth-scroll on home
+      const delay = open ? 80 : 0;
+
+      // Home-section deep links (e.g. /#projects): smooth-scroll when already home
+      const homeHash = href.match(/^\/#(.+)$/);
+      if (homeHash) {
+        window.setTimeout(() => {
+          if (window.location.pathname === "/") {
+            scrollToId(homeHash[1]);
+          } else {
+            window.location.assign(href);
+          }
+        }, delay);
+        return;
+      }
+
+      // Other route links (case studies) navigate; hash links smooth-scroll on home
       if (href.startsWith("/")) {
         window.setTimeout(() => {
           window.location.assign(href);
-        }, open ? 80 : 0);
+        }, delay);
         return;
       }
       // Let the menu unmount / unlock body before scrolling (mobile Safari)
-      window.setTimeout(() => scrollToId(href), open ? 80 : 0);
+      window.setTimeout(() => scrollToId(href), delay);
     },
     [open],
   );
