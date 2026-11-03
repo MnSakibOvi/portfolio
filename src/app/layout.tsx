@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Syne, Outfit } from "next/font/google";
 import { Providers } from "@/components/Providers";
+import { siteDescription, siteTitle, siteUrl } from "@/data/site";
 import "./globals.css";
 
 const display = Syne({
@@ -16,10 +17,29 @@ const body = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-mn-sakib-se.vercel.app"),
-  title: "Nazmus Sakib · Software Engineer | ASP.NET · nopCommerce",
-  description:
-    "Software Engineer open to roles - ASP.NET Core, nopCommerce, ERP integration, and multi-store enterprise platforms. Based in Dhaka, Bangladesh.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteTitle,
+    template: "%s | Nazmus Sakib",
+  },
+  description: siteDescription,
+  applicationName: "Nazmus Sakib",
+  authors: [{ name: "Nazmus Sakib", url: siteUrl }],
+  creator: "Nazmus Sakib",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   icons: {
     icon: [
       { url: "/icon.png", type: "image/png" },
@@ -28,11 +48,10 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
-    title: "Nazmus Sakib · Software Engineer",
-    description:
-      "ASP.NET Core · nopCommerce · open to Software Engineer roles.",
+    title: siteTitle,
+    description: siteDescription,
     type: "website",
-    url: "https://portfolio-mn-sakib-se.vercel.app",
+    url: siteUrl,
     siteName: "Nazmus Sakib",
     images: [
       {
@@ -45,9 +64,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nazmus Sakib · Software Engineer",
-    description:
-      "ASP.NET Core · nopCommerce · open to Software Engineer roles.",
+    title: siteTitle,
+    description: siteDescription,
     images: ["/og.png"],
   },
 };

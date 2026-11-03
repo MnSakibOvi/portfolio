@@ -1,3 +1,5 @@
+import { JsonLd } from "@/components/JsonLd";
+import { homeJsonLd } from "@/data/site";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
@@ -11,6 +13,7 @@ import { AnimatedBackdrop } from "@/components/AnimatedBackdrop";
 export default function Home() {
   return (
     <>
+      <JsonLd data={homeJsonLd()} />
       <AnimatedBackdrop />
       <Nav />
       <main className="relative z-10">

@@ -37,7 +37,7 @@ export function ProfilePhoto() {
       <div className="profile-frame">
         <Image
           src="/profile.jpg"
-          alt="Nazmus Sakib"
+          alt="Nazmus Sakib, Software Engineer"
           width={480}
           height={480}
           priority

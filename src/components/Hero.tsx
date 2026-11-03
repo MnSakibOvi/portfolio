@@ -73,6 +73,15 @@ export function Hero() {
           </motion.h1>
 
           <motion.p
+            className="mt-2 text-sm font-medium text-[var(--ink-muted)] md:text-base"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.24 }}
+          >
+            {profile.brand}
+          </motion.p>
+
+          <motion.p
             className="mt-3 text-base font-semibold text-[var(--ink-soft)] md:text-lg"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
