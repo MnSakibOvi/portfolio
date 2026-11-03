@@ -1,9 +1,11 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import {
   ExternalLink,
+  FileText,
   Target,
   Sparkles,
   ChevronDown,
@@ -97,19 +99,35 @@ function ProjectCard({
             {project.stack}
           </p>
         </div>
-        {project.url && (
-          <Magnetic strength={0.2}>
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost inline-flex items-center gap-1.5 text-sm"
-              data-cursor="hover"
-            >
-              Live demo
-              <ExternalLink size={14} strokeWidth={1.75} />
-            </a>
-          </Magnetic>
+        {(project.url || project.caseStudySlug) && (
+          <div className="project-card-actions">
+            {project.url && (
+              <Magnetic strength={0.2}>
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ghost inline-flex items-center gap-1.5 text-sm"
+                  data-cursor="hover"
+                >
+                  Live demo
+                  <ExternalLink size={14} strokeWidth={1.75} />
+                </a>
+              </Magnetic>
+            )}
+            {project.caseStudySlug && (
+              <Magnetic strength={0.2}>
+                <Link
+                  href={`/case-studies/${project.caseStudySlug}`}
+                  className="btn-ghost inline-flex items-center gap-1.5 text-sm"
+                  data-cursor="hover"
+                >
+                  Case study
+                  <FileText size={14} strokeWidth={1.75} />
+                </Link>
+              </Magnetic>
+            )}
+          </div>
         )}
       </motion.div>
 

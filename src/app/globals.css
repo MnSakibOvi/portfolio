@@ -290,12 +290,13 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 999px;
-  background: var(--cursor);
+  background: var(--accent-deep);
+  border: 1.5px solid color-mix(in srgb, white 80%, var(--paper));
+  box-shadow: 0 1px 4px color-mix(in srgb, var(--ink) 16%, transparent);
   z-index: 3;
-  mix-blend-mode: multiply;
 }
 
 .cursor-trail {
@@ -1305,4 +1306,37 @@ body {
   .cursor-burst {
     animation: none !important;
   }
+}
+
+/* —— Case study pages —— */
+.case-study-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.case-study-heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 650;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.case-study-block {
+  padding: 1.15rem 1.2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, white 70%, var(--paper));
+  min-height: 100%;
+}
+
+.project-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
 }

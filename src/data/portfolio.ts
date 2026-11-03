@@ -82,6 +82,8 @@ export type Project = {
   challenge: string;
   summary: string;
   url: string | null;
+  /** Internal case study route slug when available */
+  caseStudySlug?: string;
   stack: string;
   /** Measurable or product impact */
   outcomes: string[];
@@ -117,12 +119,13 @@ export const projects: Project[] = [
     id: "switchboard",
     name: "Switchboard In A Box",
     program: "Action Websites",
-    role: "Software Engineer · End-to-end ownership",
+    role: "Software Engineer · End-to-end ownership · Cross-functional lead",
     challenge:
       "Migrate and keep a 60,000+ SKU electrical catalog in sync (Schneider API), with complex pricing and Xero accounting on nopCommerce.",
     summary:
-      "Led end-to-end engineering on a wholesale storefront - ProductSync, pricing pipeline, payments, and SEO - as primary delivery owner.",
+      "Led end-to-end engineering on a wholesale storefront - ProductSync, pricing pipeline, payments, and SEO - as primary delivery owner. Led delivery across the full lifecycle and coordinated QA, UI engineering, and developers through requirements, build, release, and production support.",
     url: "https://www.switchboardinabox.com.au/",
+    caseStudySlug: "switchboard",
     stack:
       "nopCommerce · Kingdom · Schneider API · Xero · eWay · ElasticSearch",
     outcomes: [
@@ -143,12 +146,13 @@ export const projects: Project[] = [
     id: "ausgrid",
     name: "Ausgrid Staff Club",
     program: "Action Websites",
-    role: "Software Engineer · End-to-end ownership",
+    role: "Software Engineer · End-to-end ownership · Cross-functional lead",
     challenge:
       "Ship membership-only commerce for employee benefits - renewals, purchase limits, events, reservations, and MFA on nopCommerce 4.90.",
     summary:
-      "Owned integration of Apollo ClubSystem with Kingdom theme: membership lifecycle, limits, reservations, rewards, and secure checkout.",
+      "Owned integration of Apollo ClubSystem with Kingdom theme: membership lifecycle, limits, reservations, rewards, and secure checkout. Drove delivery end to end while aligning QA, UI engineering, and developers from discovery through go-live and support.",
     url: "https://www.ausgridstaffclub.org.au/",
+    caseStudySlug: "ausgrid",
     stack: "nopCommerce 4.90 · Kingdom · Apollo ClubSystem · PayPal · MFA",
     outcomes: [
       "Launched member-only staff club storefront",
@@ -168,11 +172,11 @@ export const projects: Project[] = [
     id: "ozzie-tabs",
     name: "Ozzie Tabs",
     program: "Action Websites",
-    role: "Software Engineer · End-to-end ownership",
+    role: "Software Engineer · End-to-end ownership · Cross-functional lead",
     challenge:
       "Custom shipping bands, tier pricing, and product media rules on a retail nopCommerce storefront.",
     summary:
-      "Implemented specialty retail plugins - shipping, pricing, attribute/PDF rules - and multi-gateway checkout.",
+      "Implemented specialty retail plugins - shipping, pricing, attribute/PDF rules - and multi-gateway checkout. Acted as primary delivery owner and coordinated QA, UI engineering, and developers across build, release, and production follow-up.",
     url: "https://www.ozzietabs.com.au/",
     stack: "nopCommerce · Kingdom · Stripe · PayPal · UPS · GTM",
     outcomes: [
@@ -192,12 +196,13 @@ export const projects: Project[] = [
     id: "realty-shop",
     name: "Realty Shop",
     program: "Action Websites",
-    role: "Software Engineer · End-to-end ownership",
+    role: "Software Engineer · End-to-end ownership · Cross-functional lead",
     challenge:
       "Launch nopCommerce 4.90 with a custom theme port and production cutover on Plesk.",
     summary:
-      "Owned Unishop → Shop theme migration, custom widgets, and staging-to-production deployment.",
+      "Owned Unishop → Shop theme migration, custom widgets, and staging-to-production deployment. Led the full delivery loop and worked closely with QA, UI engineering, and developers through cutover and post-release support.",
     url: "https://www.realtyshop.com.au/",
+    caseStudySlug: "realty-shop",
     stack: "nopCommerce 4.90 · Theme.Shop · PayPal · UPS · Lucene · Plesk",
     outcomes: [
       "Production store live on nopCommerce 4.90",
@@ -279,11 +284,11 @@ export const projects: Project[] = [
     id: "jim2",
     name: "Jim2Commerce Portal",
     program: "Jim2Commerce",
-    role: "Software Engineer · End-to-end ownership",
+    role: "Software Engineer · End-to-end ownership · Cross-functional lead",
     challenge:
       "ERP-backed B2B commerce on Jim2 - live pricing/stock, quotes, approvals, SSO, and partner product feeds.",
     summary:
-      "Owned client-facing delivery on Jim2Commerce: CustomPlugins (feeds), SAML SSO packaging, and multi-store configuration against the Jim2 sync platform.",
+      "Owned client-facing delivery on Jim2Commerce: CustomPlugins (feeds), SAML SSO packaging, and multi-store configuration against the Jim2 sync platform. Guided cross-functional delivery with QA, UI engineering, and developers from requirements through production support.",
     url: "https://jim2.com.au/products/jim2commerce-portal/",
     stack: "nopCommerce 4.60 · Jim2 ERP · HappenPay · SAML SSO · Multi-store",
     outcomes: [

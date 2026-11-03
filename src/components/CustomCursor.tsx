@@ -116,7 +116,7 @@ export function CustomCursor() {
           translateY: "-50%",
         }}
         animate={{
-          scale: clicking ? 0.55 : hovering ? 0.35 : 1,
+          scale: clicking ? 0.55 : hovering ? 0.45 : 1,
         }}
         transition={{ type: "spring", stiffness: 500, damping: 28 }}
       />
