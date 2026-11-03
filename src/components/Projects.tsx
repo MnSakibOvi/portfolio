@@ -25,23 +25,23 @@ type Filter = (typeof projectPrograms)[number];
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const cardVariants = {
-  hidden: { opacity: 0, scale: 0.94, y: 36 },
+  hidden: { opacity: 0, scale: 0.97, y: 22 },
   show: {
     opacity: 1,
     scale: 1,
     y: 0,
     transition: {
-      duration: 0.55,
+      duration: 0.45,
       ease,
-      staggerChildren: 0.08,
-      delayChildren: 0.06,
+      staggerChildren: 0.06,
+      delayChildren: 0.02,
     },
   },
   exit: {
     opacity: 0,
-    scale: 0.92,
-    y: -16,
-    transition: { duration: 0.35, ease },
+    scale: 0.96,
+    y: -10,
+    transition: { duration: 0.28, ease },
   },
 };
 
@@ -73,7 +73,7 @@ function ProjectCard({
       initial="hidden"
       whileInView="show"
       exit="exit"
-      viewport={{ once: false, amount: 0.22, margin: "0px 0px -6% 0px" }}
+      viewport={{ once: true, amount: 0.05, margin: "0px 0px 28% 0px" }}
       transition={{ layout: { duration: 0.45, ease } }}
       style={{ originY: 0.5 }}
       data-cursor="hover"

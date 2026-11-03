@@ -13,7 +13,7 @@ import { profile } from "@/data/portfolio";
 const links = [
   { href: "#about", label: "About" },
   { href: "#work", label: "Work" },
-  { href: "#projects", label: "Case studies" },
+  { href: "/case-studies/switchboard", label: "Case studies" },
   { href: "#skills", label: "Skills" },
   { href: "#beyond", label: "Beyond" },
   { href: "#contact", label: "Contact" },
@@ -54,10 +54,17 @@ export function Nav() {
   }, []);
 
   const go = useCallback(
-    (hash: string) => {
+    (href: string) => {
       setOpen(false);
+      // Route links (case studies) navigate; hash links smooth-scroll on home
+      if (href.startsWith("/")) {
+        window.setTimeout(() => {
+          window.location.assign(href);
+        }, open ? 80 : 0);
+        return;
+      }
       // Let the menu unmount / unlock body before scrolling (mobile Safari)
-      window.setTimeout(() => scrollToId(hash), open ? 80 : 0);
+      window.setTimeout(() => scrollToId(href), open ? 80 : 0);
     },
     [open],
   );

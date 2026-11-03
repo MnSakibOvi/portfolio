@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 const nudge = {
   initial: { rotate: 0 },
   whileInView: { rotate: [0, -12, 8, -4, 0] },
-  viewport: { once: true, amount: 0.8 },
+  viewport: { once: true, amount: 0.2, margin: "0px 0px 20% 0px" },
   transition: { duration: 0.7, ease: "easeOut" as const },
 };
 

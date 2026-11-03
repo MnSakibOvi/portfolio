@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllCaseStudySlugs, getCaseStudy } from "@/data/caseStudies";
 import { CaseStudyView } from "@/components/CaseStudyView";
-import { AnimatedBackdrop } from "@/components/AnimatedBackdrop";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -26,11 +25,8 @@ export default async function CaseStudyPage({ params }: Props) {
   if (!study) notFound();
 
   return (
-    <>
-      <AnimatedBackdrop />
-      <main className="relative z-10 min-h-screen">
-        <CaseStudyView study={study} />
-      </main>
-    </>
+    <main className="case-study-page relative z-10 min-h-screen bg-[var(--paper)]">
+      <CaseStudyView study={study} />
+    </main>
   );
 }

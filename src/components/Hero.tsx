@@ -121,7 +121,7 @@ export function Hero() {
             </Magnetic>
             <Magnetic>
               <a
-                href="#projects"
+                href="/case-studies/switchboard"
                 className="btn-ghost inline-flex items-center gap-2"
                 data-cursor="hover"
               >

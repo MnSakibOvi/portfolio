@@ -178,3 +178,10 @@ export function getCaseStudy(slug: string): CaseStudy | undefined {
 export function getAllCaseStudySlugs(): string[] {
   return caseStudies.map((c) => c.slug);
 }
+
+/** Next case study in order; wraps to the first after the last. */
+export function getNextCaseStudy(slug: string): CaseStudy | undefined {
+  const i = caseStudies.findIndex((c) => c.slug === slug);
+  if (i < 0 || caseStudies.length === 0) return undefined;
+  return caseStudies[(i + 1) % caseStudies.length];
+}
