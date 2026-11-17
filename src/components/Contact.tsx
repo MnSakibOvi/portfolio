@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, MapPin, Link2, Code2, Briefcase } from "lucide-react";
+import { Mail, MapPin, Link2, Code2, Briefcase, Phone, MessageCircle } from "lucide-react";
 import { profile } from "@/data/portfolio";
 import { Reveal } from "./Reveal";
 import { Magnetic } from "./Magnetic";
@@ -100,6 +100,40 @@ export function Contact() {
                 <Code2 size={17} strokeWidth={1.75} />
               </motion.span>
               GitHub
+            </a>
+          </Magnetic>
+          <Magnetic>
+            <a
+              href={`tel:${profile.phone.replace(/\s/g, "")}`}
+              className="btn-ghost inline-flex items-center gap-2"
+              data-cursor="hover"
+            >
+              <motion.span
+                {...nudge}
+                className="inline-flex"
+                transition={{ ...nudge.transition, delay: 0.22 }}
+              >
+                <Phone size={17} strokeWidth={1.75} />
+              </motion.span>
+              {profile.phone}
+            </a>
+          </Magnetic>
+          <Magnetic>
+            <a
+              href={profile.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost inline-flex items-center gap-2"
+              data-cursor="hover"
+            >
+              <motion.span
+                {...nudge}
+                className="inline-flex"
+                transition={{ ...nudge.transition, delay: 0.26 }}
+              >
+                <MessageCircle size={17} strokeWidth={1.75} />
+              </motion.span>
+              WhatsApp {profile.phoneSecondary}
             </a>
           </Magnetic>
           {profile.resumeUrl ? (

@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import {
+  ArrowRight,
   ExternalLink,
   FileText,
   Target,
@@ -56,12 +57,10 @@ const lineVariants = {
 
 function ProjectCard({
   project,
-  index,
   expanded,
   onToggle,
 }: {
   project: Project;
-  index: number;
   expanded: boolean;
   onToggle: () => void;
 }) {
@@ -85,9 +84,12 @@ function ProjectCard({
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <span className="program-badge">{project.program}</span>
-            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--ink-muted)]">
-              {String(index + 1).padStart(2, "0")}
-            </span>
+            {project.caseStudySlug && (
+              <span className="case-study-tag">
+                <FileText size={11} strokeWidth={2} aria-hidden />
+                Case study
+              </span>
+            )}
           </div>
           <h3 className="mt-3 font-[family-name:var(--font-display)] text-2xl font-semibold text-[var(--ink)] md:text-3xl">
             {project.name}
@@ -119,11 +121,16 @@ function ProjectCard({
               <Magnetic strength={0.2}>
                 <Link
                   href={`/case-studies/${project.caseStudySlug}`}
-                  className="btn-ghost inline-flex items-center gap-1.5 text-sm"
+                  className="btn-case inline-flex items-center gap-1.5 text-sm"
                   data-cursor="hover"
                 >
-                  Case study
-                  <FileText size={14} strokeWidth={1.75} />
+                  Read case study
+                  <ArrowRight
+                    size={15}
+                    strokeWidth={2}
+                    className="btn-case-arrow"
+                    aria-hidden
+                  />
                 </Link>
               </Magnetic>
             )}
@@ -320,11 +327,10 @@ export function Projects() {
 
         <motion.div layout className="mt-10 space-y-6">
           <AnimatePresence mode="popLayout">
-            {filtered.map((project, index) => (
+            {filtered.map((project) => (
               <ProjectCard
                 key={project.id}
                 project={project}
-                index={index}
                 expanded={openId === project.id}
                 onToggle={() =>
                   setOpenId((id) => (id === project.id ? null : project.id))

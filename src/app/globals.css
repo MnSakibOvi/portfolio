@@ -566,6 +566,37 @@ body {
   background: color-mix(in srgb, var(--accent) 8%, var(--paper));
 }
 
+/* Case study call-to-action on project cards: solid teal so it stands out */
+.btn-case {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.35rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--accent) 28%, transparent);
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.btn-case:hover {
+  background: var(--accent-deep);
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--accent) 36%, transparent);
+}
+.btn-case:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+.btn-case-arrow {
+  transition: transform 0.25s ease;
+}
+.btn-case:hover .btn-case-arrow {
+  transform: translateX(4px);
+}
+
 /* —— Profile photo: clean circle (reverted) —— */
 .profile-photo {
   position: relative;
@@ -1010,6 +1041,20 @@ body {
   color: var(--accent-deep);
   background: color-mix(in srgb, var(--accent) 14%, transparent);
   border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+.case-study-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent);
 }
 
 .project-role-subtitle {
@@ -1851,4 +1896,98 @@ body {
 }
 @media (prefers-reduced-motion: reduce) {
   .keycap { transition: none; }
+}
+
+/* —— Recommendations —— */
+.rec-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+.rec-card {
+  position: relative;
+  max-width: 52rem;
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: color-mix(in srgb, white 55%, var(--paper));
+  padding: 2rem 1.5rem 1.6rem;
+}
+.rec-quote-mark {
+  position: absolute;
+  top: 0.6rem;
+  right: 1.2rem;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 6rem;
+  line-height: 1;
+  color: color-mix(in srgb, var(--accent) 18%, transparent);
+  pointer-events: none;
+  user-select: none;
+}
+.rec-quote {
+  position: relative;
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: var(--ink);
+}
+.rec-person {
+  margin-top: 1.6rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+.rec-photo {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.rec-name {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+.rec-role {
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+.rec-meta {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+.rec-source {
+  margin-left: auto;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-underline-offset: 4px;
+}
+.rec-source:hover {
+  color: var(--accent-deep);
+  text-decoration: underline;
+}
+@media (min-width: 768px) {
+  .rec-card {
+    padding: 2.5rem 2.5rem 2rem;
+  }
+  .rec-quote {
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 520px) {
+  .rec-person {
+    flex-wrap: wrap;
+  }
+  .rec-source {
+    margin-left: 0;
+    width: 100%;
+  }
 }

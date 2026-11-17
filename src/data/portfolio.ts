@@ -10,6 +10,10 @@ export const profile = {
   location: "Dhaka, Bangladesh",
   email: "mnsakib.tech@outlook.com",
   emailSecondary: "mnsakib1812@gmail.com",
+  phone: "+880 1303764023",
+  phoneSecondary: "+880 1518982955",
+  /** WhatsApp on secondary (015) number */
+  whatsapp: "https://wa.me/8801518982955",
   linkedin: "https://linkedin.com/in/m-n-sakib",
   github: "https://github.com/MnSakibOvi",
   /** Optional: add /resume.pdf to public/ when ready */
@@ -469,3 +473,25 @@ export const research = {
   ],
   status: "Academic research · BSc Software Engineering",
 };
+
+/** Recommendations received on LinkedIn (quoted word for word). */
+export type Recommendation = {
+  name: string;
+  role: string;
+  relationship: string;
+  date: string;
+  photo: string;
+  quote: string;
+};
+
+export const recommendations: Recommendation[] = [
+  {
+    name: "Todd Kirk",
+    role: "Founder, ActionWebsites.com.au",
+    relationship: "Client: Action Websites projects",
+    date: "November 2026",
+    photo: "/recommendations/todd-kirk.jpg",
+    quote:
+      "Wonderful work ethic and responsive developer with project management skills and client interfacing. Sakib and I have worked on many projects.",
+  },
+];
