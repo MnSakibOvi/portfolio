@@ -81,7 +81,9 @@ function ProjectCard({
         className="flex flex-wrap items-start justify-between gap-4"
         variants={lineVariants}
       >
-        <div className="min-w-0 flex-1">
+        {/* basis 20rem: on narrow screens the buttons wrap below the title
+            instead of squeezing it into a thin column */}
+        <div className="min-w-0 flex-[1_1_20rem]">
           <div className="flex flex-wrap items-center gap-2">
             <span className="program-badge">{project.program}</span>
             {project.caseStudySlug && (
