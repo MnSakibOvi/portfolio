@@ -34,7 +34,6 @@ type Body = {
   vy: number;
   r: number;
   size: number;
-  push: number;
 };
 
 const ICON_DEFS: { Icon: LucideIcon; size: number }[] = [
@@ -74,7 +73,6 @@ function seedBodies(w: number, h: number): Body[] {
       vy: Math.sin(angle) * speed,
       r,
       size: def.size,
-      push: 0,
     };
   });
 }
@@ -115,35 +113,15 @@ function resolveCollision(a: Body, b: Body): { x: number; y: number } | null {
       body.vx = (body.vx / s) * cap;
       body.vy = (body.vy / s) * cap;
     }
-    body.push = 1;
   }
 
   return { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
 }
 
-function spawnBurst(layer: HTMLElement, x: number, y: number) {
-  const burst = document.createElement("span");
-  burst.className = "physics-burst";
-  burst.style.left = `${x}px`;
-  burst.style.top = `${y}px`;
-  layer.appendChild(burst);
-
-  for (let i = 0; i < 6; i++) {
-    const spark = document.createElement("span");
-    spark.className = "physics-spark";
-    const ang = (i / 6) * Math.PI * 2;
-    spark.style.setProperty("--sx", `${Math.cos(ang) * 28}px`);
-    spark.style.setProperty("--sy", `${Math.sin(ang) * 28}px`);
-    burst.appendChild(spark);
-  }
-
-  window.setTimeout(() => burst.remove(), 650);
-}
-
 /** Fling two random icons toward each other so they collide. */
 function forcePairCollision(bodies: Body[]) {
   if (bodies.length < 2) return;
-  let i = Math.floor(Math.random() * bodies.length);
+  const i = Math.floor(Math.random() * bodies.length);
   let j = Math.floor(Math.random() * bodies.length);
   while (j === i) j = Math.floor(Math.random() * bodies.length);
 
@@ -160,8 +138,6 @@ function forcePairCollision(bodies: Body[]) {
   a.vy = ny * speed;
   b.vx = -nx * speed;
   b.vy = -ny * speed;
-  a.push = 0.6;
-  b.push = 0.6;
 }
 
 export function AnimatedBackdrop() {
@@ -208,39 +184,23 @@ export function AnimatedBackdrop() {
         if (b.x < b.r) {
           b.x = b.r;
           b.vx = Math.abs(b.vx);
-          b.push = 1;
         } else if (b.x > w - b.r) {
           b.x = w - b.r;
           b.vx = -Math.abs(b.vx);
-          b.push = 1;
         }
         if (b.y < b.r) {
           b.y = b.r;
           b.vy = Math.abs(b.vy);
-          b.push = 1;
         } else if (b.y > h - b.r) {
           b.y = h - b.r;
           b.vy = -Math.abs(b.vy);
-          b.push = 1;
         }
-
-        if (b.push > 0) b.push = Math.max(0, b.push - 0.055);
       }
 
       for (let i = 0; i < bodies.length; i++) {
         for (let j = i + 1; j < bodies.length; j++) {
-          const hit = resolveCollision(bodies[i], bodies[j]);
-          if (hit) {
-            spawnBurst(layer, hit.x, hit.y);
-            const ea = nodeRefs.current[i];
-            const eb = nodeRefs.current[j];
-            ea?.classList.add("physics-icon--hit");
-            eb?.classList.add("physics-icon--hit");
-            window.setTimeout(() => {
-              ea?.classList.remove("physics-icon--hit");
-              eb?.classList.remove("physics-icon--hit");
-            }, 420);
-          }
+          // Plain bounce: icons push apart in opposite directions, no visual effect
+          resolveCollision(bodies[i], bodies[j]);
         }
       }
 
@@ -248,9 +208,7 @@ export function AnimatedBackdrop() {
         const el = nodeRefs.current[i];
         const b = bodies[i];
         if (!el) continue;
-        const scale = 1 + b.push * 0.4;
-        el.style.transform = `translate3d(${b.x - b.r}px, ${b.y - b.r}px, 0) scale(${scale})`;
-        el.style.opacity = String(0.16 + b.push * 0.2);
+        el.style.transform = `translate3d(${b.x - b.r}px, ${b.y - b.r}px, 0)`;
       }
 
       rafRef.current = requestAnimationFrame(tick);
