@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { ArrowRight, Briefcase, MapPin, Mail } from "lucide-react";
 import { profile } from "@/data/portfolio";
 import { Magnetic } from "./Magnetic";
@@ -14,9 +14,28 @@ export function Hero() {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 120]);
-  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.96]);
+  // Scroll fade/drift only on the two-column (md+) layout. On phones the photo
+  // sits below the text, so fading the hero on scroll would fade the photo
+  // just as it comes into view.
+  const twoColumn = useRef(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const sync = () => {
+      twoColumn.current = mq.matches;
+    };
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+  const y = useTransform(scrollYProgress, (v) =>
+    twoColumn.current ? v * 120 : 0,
+  );
+  const opacity = useTransform(scrollYProgress, (v) =>
+    twoColumn.current ? Math.max(0, 1 - v / 0.7) : 1,
+  );
+  const scale = useTransform(scrollYProgress, (v) =>
+    twoColumn.current ? 1 - v * 0.04 : 1,
+  );
 
   const mailHref = `mailto:${profile.email}?subject=${encodeURIComponent(
     "Software Engineer opportunity - Nazmus Sakib",
