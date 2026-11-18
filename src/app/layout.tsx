@@ -51,6 +51,7 @@ export const metadata: Metadata = {
     title: siteTitle,
     description: siteDescription,
     type: "website",
+    locale: "en_US",
     url: siteUrl,
     siteName: "Nazmus Sakib",
     images: [
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Nazmus Sakib · Software Engineer | ASP.NET · nopCommerce",
+        alt: "Nazmus Sakib | nopCommerce & ASP.NET Core Developer",
       },
     ],
   },

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Nazmus Sakib · Software Engineer | ASP.NET · nopCommerce";
+export const alt = "Nazmus Sakib | nopCommerce & ASP.NET Core Developer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -113,7 +113,7 @@ export default function OpenGraphImage() {
             fontWeight: 600,
           }}
         >
-          portfolio-mn-sakib-se.vercel.app
+          mnsakib.net
         </div>
       </div>
     </div>,

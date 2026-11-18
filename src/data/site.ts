@@ -1,13 +1,13 @@
 import type { CaseStudy } from "./caseStudies";
 import { profile } from "./portfolio";
 
-export const siteUrl = "https://portfolio-mn-sakib-se.vercel.app";
+export const siteUrl = "https://mnsakib.net";
 
 export const siteTitle =
-  "Nazmus Sakib · Software Engineer | ASP.NET · nopCommerce";
+  "Nazmus Sakib | nopCommerce & ASP.NET Core Developer";
 
 export const siteDescription =
-  "Nazmus Sakib (M N Sakib), Software Engineer in Dhaka. ASP.NET Core, nopCommerce, ERP integration, and multi-store platforms at Brain Station 23.";
+  "Nazmus Sakib (M N Sakib): nopCommerce and ASP.NET Core developer in Dhaka. Multi-store ecommerce, ERP integrations and plugins. See case studies.";
 
 const personId = `${siteUrl}/#person`;
 const websiteId = `${siteUrl}/#website`;
