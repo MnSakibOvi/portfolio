@@ -1,35 +1,43 @@
-# Nazmus Sakib — Portfolio Website
+# Nazmus Sakib: Portfolio Website
 
-Professional animated portfolio. Free stack, free deploy on [Vercel](https://vercel.com).
+Live at **https://mnsakib.net**. Animated portfolio for a nopCommerce and ASP.NET Core developer, hosted on Cloudflare Workers.
 
-## Stack (all free)
+## Stack
 
-| Piece | Library | Cost |
-|-------|---------|------|
-| Framework | Next.js 16 | Free |
-| Animations | Framer Motion | Free / MIT |
-| Smooth scroll | Lenis | Free / MIT |
-| Custom cursor + click ripples | Custom CSS/JS | Free |
-| Fonts | Google Fonts (Syne, Outfit) | Free |
-| Hosting | Vercel Hobby | Free |
+| Piece | Library |
+|-------|---------|
+| Framework | Next.js 16 (App Router), run on Cloudflare through [vinext](https://github.com/cloudflare/vinext) |
+| Animations | Framer Motion |
+| Smooth scroll | Lenis |
+| Custom cursor and click ripples | Custom CSS/JS |
+| Fonts | Google Fonts (Syne, Outfit) |
+| Hosting | Cloudflare Workers (free plan) |
 
 ## Local development
 
 ```bash
 npm install
-npm run dev
+npm run dev          # regular Next.js dev server, http://localhost:3000
+npm run dev:vinext   # Cloudflare-style dev server, http://localhost:3001
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+## Deploy
 
-## Deploy to Vercel (free)
+Cloudflare builds and deploys automatically on every push to the `cloudflare-vinext` branch
+(Workers Builds, production branch `cloudflare-vinext`). The deploy command is
+`npm run deploy:vinext`, and the build command is left empty because the deploy command builds first.
 
-1. Push this repo to GitHub (`MnSakibOvi/portfolio`).
-2. Import at [vercel.com/new](https://vercel.com/new).
-3. Deploy — no paid plan required.
-
-Or with CLI:
+Local checks before pushing:
 
 ```bash
-npx vercel
+npx tsc --noEmit
+npm run build:vinext
 ```
+
+## SEO notes
+
+- The site address lives in one place, `siteUrl` in `src/data/site.ts`. The canonical links,
+  sitemap, robots file and structured data all read it.
+- The share image is the static file `public/og.png` (1200x630). Replace the file to change it.
+- Search Console property: `mnsakib.net` (Domain property, verified with a DNS TXT record in Cloudflare).
+  Do not delete that TXT record.
