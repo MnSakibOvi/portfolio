@@ -4,10 +4,10 @@ import { profile } from "./portfolio";
 export const siteUrl = "https://mnsakib.net";
 
 export const siteTitle =
-  "Nazmus Sakib | nopCommerce & ASP.NET Core Developer";
+  "Nazmus Sakib (mnsakib) | nopCommerce & ASP.NET Core Developer";
 
 export const siteDescription =
-  "Nazmus Sakib (M N Sakib): nopCommerce and ASP.NET Core developer in Dhaka. Multi-store ecommerce, ERP integrations and plugins. See case studies.";
+  "Nazmus Sakib (mnsakib, M N Sakib): nopCommerce and ASP.NET Core developer in Dhaka. Multi-store ecommerce, ERP integrations, plugins. See case studies.";
 
 const personId = `${siteUrl}/#person`;
 const websiteId = `${siteUrl}/#website`;
@@ -16,7 +16,7 @@ const person = {
   "@type": "Person",
   "@id": personId,
   name: profile.name,
-  alternateName: [profile.brand, "MN Sakib"],
+  alternateName: [profile.brand, "MN Sakib", "mnsakib", "mnsakib.net"],
   url: siteUrl,
   image: `${siteUrl}/profile.jpg`,
   jobTitle: profile.title,
@@ -53,7 +53,7 @@ export function homeJsonLd() {
         "@id": websiteId,
         url: siteUrl,
         name: profile.name,
-        alternateName: [profile.brand, "MN Sakib"],
+        alternateName: [profile.brand, "MN Sakib", "mnsakib", "mnsakib.net"],
         description: siteDescription,
         inLanguage: "en",
         publisher: { "@id": personId },

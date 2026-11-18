@@ -59,7 +59,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Nazmus Sakib | nopCommerce & ASP.NET Core Developer",
+        alt: "Nazmus Sakib (mnsakib) | nopCommerce & ASP.NET Core Developer",
       },
     ],
   },

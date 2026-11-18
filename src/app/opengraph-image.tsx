@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Nazmus Sakib | nopCommerce & ASP.NET Core Developer";
+export const alt = "Nazmus Sakib (mnsakib) | nopCommerce & ASP.NET Core Developer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

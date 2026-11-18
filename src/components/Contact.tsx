@@ -180,9 +180,14 @@ export function Footer() {
     <footer className="relative z-10 border-t border-[var(--line)] py-8">
       <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-5 text-sm text-[var(--ink-muted)] md:flex-row md:items-center md:px-8">
         <p>
-          © {new Date().getFullYear()} {profile.name}
+          © {new Date().getFullYear()} {profile.name} (mnsakib)
         </p>
-        <p>Software Engineer · ASP.NET · nopCommerce</p>
+        <p>
+          <a href="https://mnsakib.net" className="hover:text-[var(--accent)]">
+            mnsakib.net
+          </a>{" "}
+          · Software Engineer · ASP.NET · nopCommerce
+        </p>
       </div>
     </footer>
   );
